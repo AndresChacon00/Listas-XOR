@@ -1,12 +1,17 @@
+/*
+	UCAB GUAYANA
+Proyecto Algoritmos y Programacion II
+****     Listas XOR    *****
+*/
 #include<stdio.h>
 #include "xorlist.h"
 int main(){
-    Lista list = {NULL, NULL};
+    Lista list = {NULL, NULL}; //Crea una lista
     inicializar(&list);
     int opcion=0;
     printf("*****  Listas XOR   ******");
     while(opcion >= 0 && opcion <= 11){
-        printf("\nSeleccione la accion a realizar \n");
+        printf("\nSeleccione la accion a realizar \n");	//Imprime las opciones del editor de listas XOR
         printf("1: Inicializar lista \n");
         printf("2: Insertar al principio\n");
         printf("3: Insertar al final \n");
@@ -20,7 +25,7 @@ int main(){
         printf("11: Cantidad de elementos\n");
         printf("12: Salir\n");
 
-        scanf("%i",&opcion);
+        scanf("%i",&opcion);   //Lee y realiza la accion
 
         while(opcion<1 || opcion > 12 ){
             printf("Opcion no valida, ingrese nuevamente\n");
