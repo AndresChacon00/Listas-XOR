@@ -24,7 +24,7 @@ int main(){
 
         while(opcion<1 || opcion > 12 ){
             printf("Opcion no valida, ingrese nuevamente\n");
-            scanf("%i,&opcion");
+            scanf("%i",&opcion);
         }
 
         if(opcion == 1){

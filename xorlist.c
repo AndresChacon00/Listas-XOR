@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<inttypes.h>
 
 typedef struct node {
     int val;
@@ -11,7 +12,7 @@ typedef struct Lista {
 }Lista;
 
 Node *XOR(Node *a, Node *b){
-    return (Node*) ((unsigned int) (a) ^ (unsigned int) (b));
+    return (Node*) ((intptr_t) (a) ^ (intptr_t) (b));
 }
 
 Node *new_node(int value){
@@ -58,9 +59,9 @@ int insertarFinal(Lista *listp, int value){
         final->npx = XOR(XOR(final->npx,NULL),p);
     }else
         (*listp).ini = p;
-    (*listp).fin = p;
-
-
+    if(((*listp).fin = p)!=NULL)
+	return 1;
+    return 0;
 }
 int sacarInicio(Lista *listp, int *e){
     if(!esVacia(*listp)){
@@ -204,7 +205,7 @@ int insertarOrden(Lista *listp, int e){
     p->npx = XOR( prev,curr);
     prev->npx = XOR(XOR(prev->npx,curr),p);
     curr->npx = XOR(XOR(curr->npx,prev),p);
-
+    return 1;
 }
 
 
